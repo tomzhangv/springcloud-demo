@@ -1,0 +1,29 @@
+server:
+  port: 10086 # 服务端口
+spring:
+  application:
+    name: gateway-service # 服务名称
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #是否与服务发现组件进行结合，通过serviceID 转发到具体的服务实例
+          enabled: true   #是否开启基于服务发现的规则路由
+          lowerCaseServiceId: true  #是否将服务名称转为小写
+
+#      routes:
+#        - id: customer
+#          uri: lb://EUREKA-CONSUMER #eureka注册中心存在的服务名称
+#          uri: http://localhost:10085/ #eureka注册中心存在的服务名称
+#          predicates:
+#            - Path=/Hello/Consumer/** #路径配置
+#            - Query=token
+#          filters:
+#            - StripPrefix=1     #忽略Path配置的个数，此处为1代表访问/api/customer/**时，会将api忽略，真实的访问地址为lb://admin-api/customer/**,如果为2，则为lb://admin-api/**
+
+
+eureka:
+  client:
+    service-url:
+      # 服务注册地址
+      defaultZone: http://peer1:10081/eureka/,http://peer2:10082/eureka/,http://peer3:10083/eureka/

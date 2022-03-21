@@ -1,0 +1,12 @@
+server:
+  port: 10084
+
+spring:
+  application:
+    name: eureka-client # 应用名称
+
+eureka:
+  client:
+    service-url:
+      # 服务注册地址
+      defaultZone: http://peer1:10081/eureka/,http://peer2:10082/eureka/,http://peer3:10083/eureka/
