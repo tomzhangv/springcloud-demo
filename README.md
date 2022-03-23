@@ -1,2 +1,2 @@
 # springclouddemo
-springcloud+eureka+gateway 
+springcloud 集成eureka、config、gateway
