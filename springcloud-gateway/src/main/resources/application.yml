@@ -20,7 +20,10 @@ spring:
 #            - Query=token
 #          filters:
 #            - StripPrefix=1     #忽略Path配置的个数，此处为1代表访问/api/customer/**时，会将api忽略，真实的访问地址为lb://admin-api/customer/**,如果为2，则为lb://admin-api/**
-
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
 
 eureka:
   client:

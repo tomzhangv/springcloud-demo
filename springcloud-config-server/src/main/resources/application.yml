@@ -1,0 +1,23 @@
+server:
+  port: 10087
+
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+
+# 指定当前eureka客户端的注册地址,
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:10081/eureka/,http://peer2:10082/eureka/,http://peer3:10083/eureka
+
+spring:
+  application:
+    name: config-server # 应用名称
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/tomzhangv/config-repo #配置文件所在仓库地址
+

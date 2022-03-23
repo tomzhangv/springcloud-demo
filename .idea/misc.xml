@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/springcloud-eureka-consumer" />
+    <file type="web" url="file://$PROJECT_DIR$/springcloud-consumer-service" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -13,8 +13,11 @@
         <option value="$PROJECT_DIR$/springcloud-eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-eureka-client/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-eureka-consume/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-eureka-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-config-client/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-consumer-service/pom.xml" />
       </list>
     </option>
   </component>
