@@ -4,18 +4,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+@RefreshScope
 @RestController
-@RequestMapping("/hello")
+//@RequestMapping("/hello")
 class ConsumerController {
-    @Autowired
-    private LoadBalancerClient loadBalancerClient;
-    @Autowired
-    private RestTemplate restTemplate;
+    @Value("${name}")
+    private String name;
+
+    @Value("${password}")
+    private String password;
+
+//    @Autowired
+//    private LoadBalancerClient loadBalancerClient;
+//    @Autowired
+//    private RestTemplate restTemplate;
     @RequestMapping("/consumer")
     public String helloWorld(String s){
         System.out.println("传入的值为："+s);
@@ -32,11 +40,16 @@ class ConsumerController {
         return forObject;
     }
 
-    @Value("${name}")
-    private String name;
+
+
 
     @GetMapping("/name")
     public String getName(){
         return name;
+    }
+
+    @GetMapping("/password")
+    public String getPassword(){
+        return password;
     }
 }
