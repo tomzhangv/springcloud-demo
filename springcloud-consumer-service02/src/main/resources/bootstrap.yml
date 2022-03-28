@@ -4,28 +4,35 @@ server:
 spring:
   cloud:
     config:
-      name: config-client  #配置文件名称，对应git 仓库中配置文件前部分
-      uri: http://localhost:8083 #config-server 服务端地址
+      name: consumer-service  #配置文件名称，对应git 仓库中配置文件前部分
+#      uri: http://localhost:8082 #config-server 服务端地址
       label: master #git 分支
-      profile: prod #指定环境
+      profile: dev #指定环境
       username: user
       password: 123456
-#      discovery:
-#        enabled: true   #是否开启基于服务发现的规则路由
-#        service-id: config-server
+      discovery:
+        enabled: true   #是否开启基于服务发现的规则路由
+        service-id: config-server
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
     virtual-host: /
+
+eureka:
+  client:
+    service-url:
+      # 服务注册地址
+      defaultZone: http://peer1:10081/eureka/,http://peer2:10082/eureka/
+
 #度量指标监控与检查
 management:
   endpoints:
     web:
       base-path: /actuator   #访问端点根路径，默认为 /actuator
       exposure:
-        include: bus-refresh        #需要开启的端点，这里主要是refresh这个端点
+        include: bus-refresh   #需要开启的端点，这里主要是refresh这个端点
 #        exclude:             #不需要开启的端点
 logging:
   level:

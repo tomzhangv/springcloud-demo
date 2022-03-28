@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RefreshScope
 @RestController
-public class ConfigController {
+public class ConsumerController02 {
 
     @Value("${name}")
     private String name;

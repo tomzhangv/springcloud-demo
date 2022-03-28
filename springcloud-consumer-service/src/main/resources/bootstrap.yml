@@ -5,25 +5,26 @@ spring:
   cloud:
     config:
       name: consumer-service  #配置文件名称，对应git 仓库中配置文件前部分
-      uri: http://localhost:8083 #config-server 服务端地址
+#      uri: http://localhost:8081   #config-server 服务端地址
       label: master #git 分支
       profile: dev #指定环境
       username: user
       password: 123456
-#      discovery:
-#        enabled: true   #是否开启基于服务发现的规则路由
-#        service-id: config-server
+      discovery:
+        enabled: true   #是否开启基于服务发现的规则路由
+        service-id: config-server
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
     virtual-host: /
-#eureka:
-#  client:
-#    service-url:
-#      # 服务注册地址
-#      defaultZone: http://peer1:10081/eureka/,http://peer2:10082/eureka/,http://peer3:10083/eureka/
+
+eureka:
+  client:
+    service-url:
+      # 服务注册地址
+      defaultZone: http://peer1:10081/eureka/,http://peer2:10082/eureka/
 
 #度量指标监控与检查
 management:
@@ -39,3 +40,7 @@ logging:
   level:
     com.netflix.discovery: 'OFF'
     org.springframework.cloud: 'DEBUG'
+
+#批量刷新
+#  http://localhost:9092/actuator
+#  http://localhost:9092/actuator/bus-refresh

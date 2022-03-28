@@ -20,10 +20,10 @@
 
     <dependencies>
         <!--注册到eureka中-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.cloud</groupId>-->
-        <!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
@@ -37,6 +37,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
     </dependencies>
 
@@ -53,22 +58,22 @@
     </dependencyManagement>
 
     <!--build标签 常用于添加插件及编译配置-->
-    <build>
-        <!--读取配置文件-->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                    <include>**/*.properties</include>
-                    <include>**/*.tld</include>
-                    <include>**/*.keystore</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
-    </build>
+<!--    <build>-->
+<!--        &lt;!&ndash;读取配置文件&ndash;&gt;-->
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--            </resource>-->
+<!--            <resource>-->
+<!--                <directory>src/main/java</directory>-->
+<!--                <includes>-->
+<!--                    <include>**/*.xml</include>-->
+<!--                    <include>**/*.properties</include>-->
+<!--                    <include>**/*.tld</include>-->
+<!--                    <include>**/*.keystore</include>-->
+<!--                </includes>-->
+<!--                <filtering>false</filtering>-->
+<!--            </resource>-->
+<!--        </resources>-->
+<!--    </build>-->
 </project>
